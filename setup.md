@@ -7,29 +7,31 @@ root: ..
 
 # Installation Instructions
 
+## Anaconda vs Miniconda vs Miniforge
 
+Anaconda is a distribution of the Conda package manager and a number of other useful packages. Traditionally this lesson recommended installing Anaconda as an easy way to get everything required. Anaconda has changed it's licensing terms and now requires users at [organisations with more than 200 employees to pay for a license](https://www.anaconda.com/pricing/terms-of-service-faqs). This does not apply to "accredited educational institutions" but the policy for institutions which focus on research rather than education is unclear. This restriction also applies to Miniconda and using the defaults software channel in Conda. The Mini Forge distribution has been created as an open source community supported alternative that does not have these license restrictions. To avoid any potential licensing problems it is recommended to use Miniforge for this lesson.
 
 ## Check to see if Conda is already installed
 
-If you have ever installed the [Anaconda Python distribution](https://www.anaconda.com/distribution/) 
+If you have ever installed [Miniforge](https://conda-forge.org/download/)
 on your local machine, then you already have Conda installed! Mac and Linux users can check 
 whether Conda is installed by running the following command in a terminal.
 
 ~~~
 $ which conda
-/Users/$USERNAME/miniconda3/bin/conda
+/Users/$USERNAME/miniforge3/bin/conda
 ~~~
 {: .language-bash}
 
 If Conda has already been installed on your machine, then this command should return the 
 absolute path to the conda executable. 
 
-Windows users should search for "Anaconda" to see if the "Anaconda Command Prompt" shows up as an 
+Windows users should search for "Miniforge" to see if the "Miniforge Prompt" shows up as an 
 option, if it does then you already have Conda installed.
 
-> ## Old version of Anaconda?
+> ## Old version of Conda?
 >
-> If you previously installed the Anaconda Python distribution you may have an old version of Conda. You
+> If you previously installed a Conda distribution you may have an old version of Conda. You
 > can check your version of Conda with the following command.
 > 
 > ~~~
@@ -38,76 +40,52 @@ option, if it does then you already have Conda installed.
 > {: .language-bash}
 > 
 > If you have a version of Conda that is 4.5 (or older), then it is probably best to 
-[uninstall](https://docs.anaconda.com/anaconda/install/uninstall/) your Anaconda Python distribution 
-> and then reinstall the most recent version.
+[uninstall](https://docs.anaconda.com/anaconda/install/uninstall/) your Conda distribution 
+> and then reinstall a recent version Miniforge.
 {: .callout}
 
-## Install Python 3 version of Miniconda
+## Install Miniforge
 
-If Conda has not been installed on your machine, then install the Python 3 version of 
-[Miniconda](https://docs.conda.io/en/latest/miniconda.html) for your OS. As the name 
-suggests, Miniconda is a "mini" version of the 
+If Conda has not been installed on your machine, then install [Miniforge](https://conda-forge.org/download/) for your OS. As the name 
+suggests, Miniforge is a "mini" version of the 
 [Anaconda Python distribution](https://www.anaconda.com/distribution/) that includes only Conda, a 
-Python 3 distribution, and any necessary OS-specific dependencies.
+Python 3 distribution, and any necessary OS-specific dependencies. 
 
 For convenience here are links to the 64-bit Miniconda installers.
 
-* [Windows](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
-* [Mac OSX](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg)
-* [Linux](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh) 
+* [Windows](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe)
+* [Mac OSX - Intel CPU](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh)
+* [Mac OSX - Apple M1/2/3 CPU](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh)
+* [Linux](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh) 
 
-> ## Prefer Miniconda to Anaconda
->
-> I suggest installing Miniconda which combines Conda with Python 3 (and a small number of core 
-> systems packages) instead of the full Anaconda distribution. Installing only Miniconda will 
-> encourage you to create separate environments for each project (and to install only those packages 
-> that you actually need for each project!). Project specific environments enhance portability and 
-> reproducibility of your research and workflows. 
-> 
-> Besides, if you *really* want the full Anaconda distribution you can always create an new conda 
-> environment and install it using the following command.
->
-> ~~~
-> $ conda create --name my-anaconda-env anaconda=5.3
-> ~~~
-> {: .language-bash}
->
-> We will discuss the above command in great depth in the workshop.
-{: .callout}
 
 ### Windows installation
 
-After you downloaded the [Windows GUI installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe), double click on it and follow the instructions (accept license, etc.).
-You can use the defaults except for the "Advanced Installation Options" where you would tick on **"Add Miniconda3 to my PATH environment variable"**.
+After you downloaded the [Windows installer](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe), double click on it and follow the instructions (accept license, etc.).
+Make sure you tick on **"Add Miniforge3 to my PATH environment variable"** option.
 
-### Mac OSX installation
-After you downloaded the [Mac OSX GUI installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg), double click on it and follow the instructions (accept license, etc.). 
-When you are asked where to install Miniconda, you should leave the default option to "install for me only". If you get the error message “You cannot install Miniconda in this location,” reselect "Install for me only". Then you should be able to continue to the next.
-The default option will modify your PATH in ~/.bash_profile. If you open the terminal after installation is over, you would see "(base)" on the left side of prompt.
+### Mac OSX or Linux installation
 
-### Linux installation
-
-I will walk through the steps for installing on Linux systems below as installing on Linux systems 
-is slightly more involved. First, download the 64-bit Python 3 install script for Miniconda 
-(clicking the link above will download the same script!).
+First, download the 64-bit Python 3 install script for Miniforge
+either by clicking the link above or using this command in your terminal:
 
 ~~~
-wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 ~~~
 {: .language-bash}
 
-Run the Miniconda install script. Follow the prompts on the installer screens. If you are unsure 
+Run the Miniforge install script from your terminal. Follow the prompts on the installer screens. If you are unsure 
 about any setting, accept the defaults (you can change them later if necessary).
 
 ~~~
-bash Miniconda3-latest-Linux-x86_64.sh
+bash Miniforge3-$(uname)-$(uname -m).sh
 ~~~
 {: .language-bash}
 
 Once the install script completes, you can remove it.
 
 ~~~
-rm Miniconda3-latest-Linux-x86_64.sh
+rm Miniforge3-$(uname)-$(uname -m).sh
 ~~~
 {: .language-bash}
 
@@ -197,7 +175,7 @@ $ conda init bash
 ~~~
 {: .language-bash}
 
-Windows users can either use the Anaconda Command Prompt or the Anaconda Powershell Prompt which 
+Windows users can use the Miniforge Prompt which 
 are already initialized for Conda or they can initialize Conda for Powershell as follows.
 
 ~~~
