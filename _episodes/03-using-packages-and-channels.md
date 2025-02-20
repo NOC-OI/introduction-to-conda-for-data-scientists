@@ -70,9 +70,13 @@ A complete listing of available PyTorch packages can be found on
 ## What are Conda channels?
 
 Again from the [Conda documentation](https://conda.io/en/latest/), conda packages are downloaded from 
-remote channels, which are URLs to directories containing conda packages. The `conda` command 
-searches a default set of channels, and packages are automatically downloaded and updated from the 
-[Anaconda Cloud channels](https://repo.anaconda.com/pkgs/). 
+remote channels, which are URLs to directories containing conda packages. Which set of channels you have
+will depend on which distribution of Conda you are using. Anaconda users will have a set of channels
+from Anaconda Inc. that should only be used by those who have an Anaconda subscription or are [exempt from needing one](https://www.anaconda.com/blog/update-on-anacondas-terms-of-service-for-academia-and-research).
+
+The `conda` command 
+searches a default set of channels, and packages are automatically downloaded and updated from the internet.
+When using Anaconda these will come from [Anaconda Cloud channels](https://repo.anaconda.com/pkgs/). 
 
 *   `main`: The majority of all new Anaconda, Inc. package builds are hosted here. Included in 
     conda's defaults channel as the top priority channel.
@@ -89,7 +93,7 @@ channels.
 > In addition to the `default` channels that are managed by Anaconda Inc., there is another 
 > channel called that also has a special status. The [Conda-Forge](https://github.com/conda-forge) 
 > project "is a community led collection of recipes, build infrastructure and distributions for 
-> the conda package manager."
+> the conda package manager.". This is the only channel which is active by default for users of Miniforge.
 >
 > There are a few reasons that you may wish to use the `conda-forge` channel instead of the 
 > `defaults` channel maintained by Anaconda:
@@ -98,6 +102,7 @@ channels.
 > 2. There are packages on the `conda-forge` channel that aren't available from `defaults`.
 > 3. You may wish to use a dependency such as `openblas` (from `conda-forge`) instead of `mkl` 
 > (from `defaults`).
+> 4. You (or your employer) is required to pay for an Anaconda subscription but can't afford to do so.
 {: .callout}
 
 ## How do I install a package from a specific channel?
