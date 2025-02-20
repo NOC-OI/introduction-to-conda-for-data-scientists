@@ -408,7 +408,7 @@ your `~/miniconda3/env/` folder, you’ll have to give each of them a different 
 > {: .language-bash}
 >
 > Next, create a new environment inside the newly created `project-dir` in a sub-directory called 
-> `env` an install Python 3.6, version 3.1 of Matplotlib, and version 2.0 of 
+> `env` an install Python 3.6, version 3.1 of Matplotlib, and version 2.4 of 
 > [TensorFlow](https://www.tensorflow.org/).
 > 
 > > ## Solution
@@ -417,7 +417,7 @@ your `~/miniconda3/env/` folder, you’ll have to give each of them a different 
 > > project-dir $ conda create --prefix ./env \
 > > python=3.6 \
 > > matplotlib=3.1 \
-> > tensorflow=2.0 \
+> > tensorflow=2.4 \
 > > ~~~
 > > {: .language-bash}
 > >
