@@ -219,14 +219,14 @@ make sure to add the `--from-history` argument to the `conda env export` command
 > environment.yml file:
 >
 > ~~~
-> name: pytorch-env
+> name: seqlib-env
 > 
 > channels:
->   - pytorch
->   - defaults
+>   - bioconda
+>   - conda-forge
 >
 > dependencies:
->   - pytorch=1.1
+>   - seqlib=1.2.0
 > ~~~
 > {: .language-yaml}
 > 
@@ -261,11 +261,11 @@ from the environment.
 > 
 > When working with `environment.yml` files it is often just as easy to rebuild the Conda 
 > environment from scratch whenever you need to add or remove dependencies. To rebuild a Conda 
-> environment from scratch you can pass the `--force` option to the `conda env create` command 
-> which will remove any existing environment directory before rebuilding it using the provided 
+> environment from scratch you can pass the `--yes` option (or `--force` if you have an old version of Conda) 
+> to the `conda env create` command which will remove any existing environment directory before rebuilding it using the provided 
 > environment file. 
 > ~~~
-> $ conda env create --prefix ./env --file environment.yml --force
+> $ conda env create --prefix ./env --file environment.yml --yes
 > ~~~
 > {: .language-bash}
 {: .callout}
