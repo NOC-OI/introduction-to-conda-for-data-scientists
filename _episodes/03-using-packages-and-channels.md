@@ -290,16 +290,16 @@ The [conda documentation][conda-install-docs] has a nice decision tree that desc
 > ## Alternative syntax for installing packages from specific channels
 > 
 > There exists an alternative syntax for installing conda packages from specific channels that 
-> more explicitly links the channel being used to install a particular package.
+> more explicitly links the channel being used to install a particular package. 
+> Let's install sciunit (a scientific testing framework) from conda-forge.
 > 
 > ~~~
-> $ conda install conda-forge::tensorflow  --prefix ./env
+> $ conda install conda-forge::sciunit  --prefix ./env
 > ~~~
 > {: .language-bash}
 >
-> Create a new folder `my-final-project` in `~/Desktop/introduction-to-conda-for-data-scientists` and repeat the previous exercise using this alternative syntax to install `python`, `jupyterlab`, 
-> and `matplotlib` from the `conda-forge` channel and `pytorch` and `torchvision` from the 
-> `pytorch` channel.
+> Create a new folder `my-final-project` in `~/Desktop/introduction-to-conda-for-data-scientists` and repeat the previous exercise using this alternative syntax to 
+> install `python3.11` and `sciunit` from the `conda-forge` channel and `seqlib` from the `bioconda` channel.
 >
 > > ## Solution
 > > 
