@@ -261,29 +261,23 @@ The [conda documentation][conda-install-docs] has a nice decision tree that desc
 
 > ## Specifying channels when installing packages
 >
-> Like many projects, [PyTorch](https://pytorch.org/) has its own 
-> [channel](https://anaconda.org/pytorch) on Anaconda Cloud. This channel has several interesting 
-> packages, in particular `pytorch` (PyTorch core) and `torchvision` (datasets, transforms, and 
-> models specific to computer vision).
+> [Seqlib](https://github.com/walaj/SeqLib) is a software library for reading DNA sequence data.
+> It is available from the Bioconda channel (but is not available from conda-forge or Anaconda defaults).
 > 
-> Create a new directory called `my-computer-vision-project` and then create a Python 3.6 
-> environment in a sub-directory called `env/` with the two packages listed above. Also include 
-> the most recent version of `jupyterlab` in your environment (so you have a nice UI) and 
-> `matplotlib` (so you can make plots).
+> Create a new directory called `my-bioinformatics-project` and then create a Python 3.11 
+> environment in a sub-directory called `env/` with seqlib 1.2.0.
 > 
 > > ## Solution
 > > 
 > > In order to create a new environment you use the `conda create` command as follows.
 > > 
 > > ~~~
-> > $ mkdir my-computer-vision-project
-> > $ cd my-computer-vision-project/
-> > $ conda create --prefix ./env --channel pytorch \
-> >  python=3.6 \
-> >  jupyterlab=1.0 \
-> >  pytorch=1.1 \
-> >  torchvision=0.3 \
-> >  matplotlib=3.1
+> > $ mkdir my-bioinformatics-project
+> > $ cd my-bioinformatics-project/
+> > $ conda create --prefix ./env --channel bioconda \
+> >  python=3.11 \
+> >  seqlib=1.2.0 \
+> >  matplotlib=3.6
 > > ~~~
 > > {: .language-bash}
 > > 
