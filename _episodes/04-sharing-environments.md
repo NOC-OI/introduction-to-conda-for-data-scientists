@@ -298,7 +298,7 @@ from the environment.
 > > new Dask dependencies:
 > > 
 > > ~~~
-> > $ conda env create --prefix ./env --file environment.yml --force 
+> > $ conda env create --prefix ./env --file environment.yml --yes 
 > > ~~~
 > > {: .language-bash}
 > > 
@@ -389,7 +389,7 @@ dependencies:
 Next, rebuild the Conda environment using the following command.
 
 ~~~
-$ conda env create --prefix ./env --file environment.yml --force
+$ conda env create --prefix ./env --file environment.yml --yes
 ~~~
 
 Once the Conda environment has been re-built you can activate the environment and then create the 
@@ -426,6 +426,25 @@ the same name.
 > >
 > {: .solution}
 {: .challenge}
+
+## Cleaning up 
+
+Conda Environments can take a lot of disk space (multiple gigabytes) and the package files they download are also cached and can take lots of space too.
+To save disk space we should cleanup any unwanted environments we've created during this lesson. Use the `conda env list` command to find them
+and then use `conda env remove -n <environment name>` or `conda env remove -p <prefix path>` to remove them.
+
+### Clearing the Conda cache
+
+The Conda cache is a copy of all the package files you download to install environments. This means if a new environment you download needs a file another
+previously downloaded then it can just use the cached copy. We can clear this cache by doing:
+
+~~~
+conda clean -all
+~~~
+{: .language-bash}
+
+
+
 
 {% include links.md %}
 
